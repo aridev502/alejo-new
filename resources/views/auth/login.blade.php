@@ -43,11 +43,11 @@
                                 </div>
 
                                 <div class="remember-forgot">
-                                    @if (Route::has('password.request'))
-                                    <a class="" href="{{ route('password.request') }}">
-                                        {{ __('Olvidate Tu Contraseña ?') }}
+
+                                    <a class="" href="{{ route('profesor.login') }}">
+                                        {{ __('LOGIN PROFESOR ') }}
                                     </a>
-                                    @endif
+
                                 </div>
 
                                 <div class="text-center">

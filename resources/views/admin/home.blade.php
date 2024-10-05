@@ -62,6 +62,26 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Profesores</h5>
+                    <p class="card-text">View and manage all grados in the system.</p>
+                    <a href="{{ route('profesors.index') }}" class="btn btn-primary">View Grados</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Curso</h5>
+                    <p class="card-text">View and manage all grados in the system.</p>
+                    <a href="{{ route('cursos.index') }}" class="btn btn-primary">View Grados</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection
