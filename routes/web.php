@@ -4,8 +4,10 @@
 use App\Http\Controllers\Admin\CursoController;
 use App\Http\Controllers\Admin\EstudianteController;
 use App\Http\Controllers\Admin\GradoController;
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\ProfesorController;
 use App\Http\Controllers\Admin\UserController;
+use App\Models\Grado;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +24,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('login');
+
+    $grados = Grado::all();
+    return view('welcome', compact('grados'));
 });
 
 Auth::routes();
@@ -41,7 +45,7 @@ Route::get('artisan/{comando}/{contra}', function ($comando, $contra) {
 
 Route::group(['prefix' => "admin", 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth', 'AdminPanelAccess']], function () {
 
-    Route::get('/casa', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController@index')->name('home');
 
 
 
@@ -122,3 +126,7 @@ Route::post('store_libro', [ProfesorController::class, 'store_libro'])->name('pr
 Route::delete('libro_destroy/{libro}', [ProfesorController::class, 'libro_destroy'])->name('profesor.libro_destroy');
 Route::get('profe-home', [ProfesorController::class, 'home'])->name('profesor.home');
 Route::get('profe-currso/{curso_id}', [ProfesorController::class, 'curso'])->name('profesor.curso');
+
+
+
+Route::get('curos/{curso_id}', [HomeController::class, 'getCusrsoTolibros'])->name('home.getCusrsoTolibros');

@@ -25,44 +25,7 @@
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
 
 
-    <div class="search-popup">
-        <div class="search-popup-container">
 
-            <form role="search" method="get" class="search-form" action="">
-                <input type="search" id="search-form" class="search-field" placeholder="Type and press enter" value="" name="s" />
-                <button type="submit" class="search-submit"><svg class="search">
-                        <use xlink:href="#search"></use>
-                    </svg></button>
-            </form>
-
-            <h5 class="cat-list-title">Browse Categories</h5>
-
-            <ul class="cat-list">
-                <li class="cat-list-item">
-                    <a href="#" title="Mobile Phones">Mobile Phones</a>
-                </li>
-                <li class="cat-list-item">
-                    <a href="#" title="Smart Watches">Smart Watches</a>
-                </li>
-                <li class="cat-list-item">
-                    <a href="#" title="Headphones">Headphones</a>
-                </li>
-                <li class="cat-list-item">
-                    <a href="#" title="Accessories">Accessories</a>
-                </li>
-                <li class="cat-list-item">
-                    <a href="#" title="Monitors">Monitors</a>
-                </li>
-                <li class="cat-list-item">
-                    <a href="#" title="Speakers">Speakers</a>
-                </li>
-                <li class="cat-list-item">
-                    <a href="#" title="Memory Cards">Memory Cards</a>
-                </li>
-            </ul>
-
-        </div>
-    </div>
 
     <header id="header" class="site-header header-scrolled position-fixed text-black bg-light">
         <nav id="header-nav" class="navbar navbar-expand-lg px-3 mb-3">
@@ -85,14 +48,10 @@
                     <div class="offcanvas-body">
                         <ul id="navbar" class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link me-4 active" href="#billboard">Home</a>
+                                <a class="nav-link me-4 active" href="/">Home</a>
                             </li>
 
-                            @foreach ($grados as $g )
-                            <li class="nav-item">
-                                <a class="nav-link me-4" href="{{route('home.getCusrsoTolibros', $g->id)}}">{{$g->nombre}}</a>
-                            </li>
-                            @endforeach
+
 
                         </ul>
                     </div>
@@ -104,32 +63,61 @@
 
 
 
-    <section id="subscribe" class="container-grid padding-large position-relative overflow-hidden">
-        <div class="container">
-            <div class="row">
-                <div class="subscribe-content bg-dark d-flex flex-wrap justify-content-center align-items-center padding-medium">
-                    <div class="col-md-6 col-sm-12">
-                        <div class="display-header pe-3">
-                            <h2 class="display-7 text-uppercase text-light">{{config('app.name')}}</h2>
-                            <p>SI ERES ADMINSTRADOR O PROFESOR.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-5 col-sm-12">
-                        <form class="subscription-form validate" action="{{ route('login') }}">
-                            <div class="input-group flex-wrap">
 
-                                <button type="submit" class="btn btn-medium btn-primary text-uppercase btn-rounded-none" type="submit">INICIAR SESION</button>
-                            </div>
-                        </form>
-                    </div>
+    <div class="row">
+        <div class="col text-center">
+            <h1 style="margin-top: 5%;">{{$grado->nombre}}</h1>
+        </div>
+
+
+
+
+
+    </div>
+
+    <div class="row p-3">
+        @foreach ($cursos as $c)
+        <div class="col-md-3 ">
+            <div class="card table-responsive">
+                <img class="card-img-top" src="holder.js/100x180/" alt="">
+                <div class="card-body">
+                    <h4 class="card-title text-uppercase">{{$c->nombre}}</h4>
+
+
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (getLibrosToCuros($c->id) as $libro)
+                            <tr>
+                                <td>{{$libro->nombre}}</td>
+                                <td>
+
+
+
+                                    <!-- <img src="{{Storage::url('libros/' . $libro->url)}}" class="img-fluid" alt=""> -->
+
+                                    <a href="{{Storage::url('libros/' . $libro->url)}}" class="btn btn-sm btn-success" download="{{$libro->url}}">Descargar</a>
+
+
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+
+
+
                 </div>
             </div>
         </div>
-    </section>
-
-
-
-
+        @endforeach
+    </div>
 
 
     <div id="footer-bottom">
