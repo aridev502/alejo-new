@@ -69,7 +69,7 @@
 
                         <div class="dropdown-menu" aria-labelledby="dropdownId">
                             <!-- <a class="dropdown-item" href="#">Action 1</a> -->
-                            <a class="dropdown-item" href="/">Cerrar Sesion</a>
+                            <a class="dropdown-item" href="https://escuelatipofederacionjm.com/public/">Cerrar Sesion</a>
                         </div>
                     </li>
                 </ul>

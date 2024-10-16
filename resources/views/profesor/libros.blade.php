@@ -73,7 +73,7 @@
 
                                 <!-- <img src="{{Storage::url('libros/' . $libro->url)}}" class="img-fluid" alt=""> -->
 
-                                <a href="{{Storage::url('libros/' . $libro->url)}}" class="btn btn-sm btn-success" download="{{$libro->url}}">Descargar</a>
+                                <a href="{{config('app.url')}}/storage/libros/{{ $libro->url }}" class="btn btn-sm btn-success" download="{{$libro->url}}">Descargar</a>
 
                                 <form action="{{route('profesor.libro_destroy', $libro)}}" method="post" style="display: inline">
                                     @csrf
