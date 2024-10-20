@@ -63,6 +63,77 @@
 
 
 
+                    <li class="nav-item">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#modelId">
+                            NUEVO ESTUDIANTE
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">NUEVO ESTUDIANTE</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="{{route('pestudiantes.store')}}" method="post">
+                                            @csrf
+                                            <div class="form-group">
+                                                <label for="grado_id">GRADO</label>
+                                                <select class="form-control" name="grado_id" id="grado">
+                                                    <option value="">Seleccione un Grado</option>
+                                                    @foreach (session('grados') as $grado)
+                                                    <option value="{{$grado->id}}">{{$grado->nombre}}</option>
+                                                    @endforeach
+
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="nombre">NOMBRE</label>
+                                                <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Ingrese el nombre del estudiante">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="apellidos">APELLIDOS</label>
+                                                <input type="text" class="form-control" name="apellidos" id="apellidos" aria-describedby="helpId" placeholder="Ingrese los apellidos del estudiante">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="email">EMAIL</label>
+                                                <input type="email" class="form-control" name="email" id="email" aria-describedby="helpId" placeholder="Ingrese el email del estudiante">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password">PASSWORD</label>
+                                                <input type="password" class="form-control" name="password" id="password" aria-describedby="helpId" placeholder="Ingrese la contraseña del estudiante">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="edad">EDAD</label>
+                                                <input type="number" class="form-control" name="edad" id="edad" aria-describedby="helpId" placeholder="Ingrese la edad del estudiante">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="padre">PADRE</label>
+                                                <input type="text" class="form-control" name="padre" id="padre" aria-describedby="helpId" placeholder="Ingrese el nombre del padre del estudiante">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="telefono">TELEFONO</label>
+                                                <input type="text" class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Ingrese el telefono del estudiante">
+                                            </div>
+
+                                            <button type="submit" class="btn btn-primary">GUARDAR</button>
+
+
+                                        </form>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{session('profe')['nombre']}}</a>
 
@@ -79,6 +150,8 @@
 
         <div class="container-fluid">
             @include('partial.admin.alert')
+
+
 
 
 

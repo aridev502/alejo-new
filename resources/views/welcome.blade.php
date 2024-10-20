@@ -133,6 +133,25 @@
     </div>
 
 
+    <div class="row mt-5 p-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">MISION</h4>
+                    <p class="card-text">Ser una institución educativa e incluyente que contribuya a la formación integral de los niños y niñas de edad escolar, como parte de una nación multicultural, intercultural y plurilingüe, para que les permitan desembolsarse desarrollarse y con ello alcanzar y mejorar las condiciones individuales y familiares, así como la continuidad de sus estudios de nivel básico, lo cual les permitirá aplicar los conocimientos al mundo competitivo y de tecnología que está en continuos cambios, a través de una educación de calidad con equidad, participación y pertenencia de la comunidad educativa.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">VISION</h4>
+                    <p class="card-text">Somos una institución educativa incluyente, innovadora y proactiva, que brinda educación de calidad con igualdad de oportunidades, comprometida en la formación integral de niños y niñas, preparados para un mundo competitivo y de avances tecnológicos que mejore la calidad de vida.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 

@@ -41,6 +41,21 @@ class EstudianteController extends Controller
         return view('admin.estudiantes.show', compact('estudiante'));
     }
 
+    public function store2(Request $request)
+    {
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'apellidos' => 'required|string|max:255',
+            'email' => 'required|email|unique:estudiantes',
+            'password' => 'required|string|min:8',
+            'edad' => 'required|integer',
+        ]);
+
+        Estudiante::create($request->all());
+        return back()->with('success', 'Estudiante creado exitosamente.');
+    }
+
+
     public function edit(Estudiante $estudiante)
     {
         return view('admin.estudiantes.edit', compact('estudiante'));

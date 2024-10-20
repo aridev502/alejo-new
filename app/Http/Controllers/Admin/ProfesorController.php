@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Grado;
 use App\Models\Libro;
 use App\Models\Profesor;
 use Illuminate\Http\Request;
@@ -124,8 +125,11 @@ class ProfesorController extends Controller
         if ($request->password == $profesor->password) {
 
 
+            $grados = Grado::all();
+
             session(['profesor_id' => $profesor->id]);
             session(['profe' => $profesor]);
+            session(['grados' => $grados]);
 
 
             return redirect()->route('profesor.home');
@@ -136,7 +140,8 @@ class ProfesorController extends Controller
 
     function home()
     {
-        return view('profesor.home');
+        $grados = Grado::all();
+        return view('profesor.home', compact('grados'));
     }
 
 
@@ -149,10 +154,12 @@ class ProfesorController extends Controller
     function store_libro(Request $request)
     {
 
+
         $request->validate([
             'nombre' => 'required|string|max:255',
-            'url' => 'required|file|mimes:pdf,docx,jpg,png',
+            'url' => 'required|file|mimes:pdf,docx,jpg,png.mp4,jpeg,gif|max:2048',
         ]);
+
 
 
 

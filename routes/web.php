@@ -27,7 +27,7 @@ Route::get('/', function () {
 
     $grados = Grado::all();
     return view('welcome', compact('grados'));
-});
+})->name('welcome');
 
 Auth::routes();
 
@@ -41,6 +41,9 @@ Route::get('artisan/{comando}/{contra}', function ($comando, $contra) {
         echo 'NO ACCESO';
     }
 });
+
+
+Route::post('estudiantes', [EstudianteController::class, 'store2'])->name('pestudiantes.store');
 
 
 Route::group(['prefix' => "admin", 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth', 'AdminPanelAccess']], function () {
