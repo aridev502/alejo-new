@@ -50,7 +50,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-4">
         <div class="card">
             <img class="card-img-top" src="holder.js/100x180/" alt="">
             <div class="card-body">
@@ -93,6 +93,38 @@
             </div>
         </div>
     </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">ESTUDIANTES</h4>
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Edad</th>
+                            <th>Padre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($estudiantes as $estudiante)
+                        <tr>
+                            <td>{{ $estudiante->nombre }}</td>
+                            <td>{{ $estudiante->apellidos }}</td>
+                            <td>{{ $estudiante->edad }}</td>
+                            <td>{{ $estudiante->padre }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
 </div>
 
 @endsection

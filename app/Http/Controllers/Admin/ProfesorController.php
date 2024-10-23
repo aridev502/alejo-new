@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Curso;
+use App\Models\Estudiante;
 use App\Models\Grado;
 use App\Models\Libro;
 use App\Models\Profesor;
@@ -148,7 +150,15 @@ class ProfesorController extends Controller
     function curso($curso_id)
     {
         $libros = Libro::where('curso_id', $curso_id)->get();
-        return view('profesor.libros', compact('libros', 'curso_id'));
+
+        $curso_id = Curso::where('id', $curso_id)->first();
+
+        $grado = Grado::where('id', $curso_id->grado_id)->first();
+
+
+        $estudiantes = Estudiante::where('grado_id', $grado->id)->get();
+
+        return view('profesor.libros', compact('libros', 'curso_id', 'estudiantes'));
     }
 
     function store_libro(Request $request)
