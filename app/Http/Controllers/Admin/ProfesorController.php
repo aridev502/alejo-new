@@ -167,9 +167,8 @@ class ProfesorController extends Controller
 
         $request->validate([
             'nombre' => 'required|string|max:255',
-            'url' => 'required|file|mimes:pdf,docx,jpg,png.mp4,jpeg,gif|max:2048',
+            'url' => 'required|file|max:2048',
         ]);
-
 
 
 

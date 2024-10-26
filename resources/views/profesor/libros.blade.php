@@ -29,7 +29,7 @@
                 <form action="{{route('profesor.store_libro')}}" method="post" enctype="multipart/form-data">
                     @csrf
 
-                    <input type="text" name="curso_id" value="{{$curso_id}}" hidden>
+                    <input type="text" name="curso_id" value="{{$curso_id->id}}" hidden>
 
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
@@ -71,7 +71,7 @@
 
 
 
-                                <!-- <img src="{{Storage::url('libros/' . $libro->url)}}" class="img-fluid" alt=""> -->
+                                <!-- <img src=" {{Storage::url('libros/' . $libro->url)}}" class="img-fluid" alt=""> -->
 
                                 <a href="{{config('app.url')}}/storage/libros/{{ $libro->url }}" class="btn btn-sm btn-success" download="{{$libro->url}}">Descargar</a>
 
